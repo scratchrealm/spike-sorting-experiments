@@ -1,3 +1,4 @@
+import os
 import json
 import time
 import numpy as np
@@ -148,6 +149,10 @@ def do_comparison(*,
     path2: str,
     output_fname: str
 ):
+    if os.path.exists(output_fname):
+        print(f'Output file already exists: {output_fname}')
+        return
+
     print('')
     print('')
     print(f'Comparison: {path1} vs {path2}')
